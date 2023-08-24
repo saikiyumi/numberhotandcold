@@ -1,0 +1,29 @@
+import random
+import math
+
+lower = int(input("Enter Lower bound:- "))
+
+upper = int(input("Enter Upper bound:- "))
+
+x = random.randint(lower, upper)
+print("\n\tVocê tem apenas ", round(math.log(upper - lower + 1, 2)), " chances para adivinhar o integral!\n")
+
+count = 0
+
+while count < math.log(upper - lower + 1, 2):
+    count += 1
+
+    guess = int(input("Tente adivinhar um número:- "))
+
+    if x == guess:
+        print("ACERTOU! Congrats", count, " tente")
+
+        break
+    elif x > guess:
+        print("Tá sentindo esse frio? Seu número tá muito abaixo!")
+    elif x < guess:
+        print("Passou longe. Esse número está muito alto!")
+
+if count >= math.log(upper - lower + 1, 2):
+    print("\nO número é %d" % x)
+    print("\tTente de novo!")
